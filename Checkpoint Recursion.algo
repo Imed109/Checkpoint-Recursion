@@ -1,0 +1,25 @@
+FUNCTION isPalindrome(word: STRING, i, j: INTEGER) : BOOLEAN
+BEGIN
+    IF i >= j THEN
+        RETURN TRUE  // Stop condition: An empty word or single-character word is a palindrome
+    ELSE IF word[i] = word[j] THEN
+        RETURN isPalindrome(word, i + 1, j - 1)  
+    ELSE
+        RETURN FALSE  // If characters are different, it's not a palindrome
+    END_IF
+END
+
+ALGORITHM Palindrome
+VAR
+    word: STRING;
+    isPalindrome: BOOLEAN;
+BEGIN
+    read (word)        
+    isPalindrome := isPalindrome(word, 1, LENGTH(word))
+
+    IF isPalindrome THEN
+        WRITE("your word is a palindrome.")
+    ELSE
+        WRITE("your word is not a palindrome.")
+    END_IF
+END
